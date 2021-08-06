@@ -39,14 +39,15 @@ estimated_means = {
 question_range = range(10, 20 + 1)
 # What are the range of alternatives we'd consider showing our respondent
 alternative_range = range(3, 5 + 1)
+# What range of respondents are we willing to consider
+respondent_range = [50, 100, 200, 300, 400, 500, 1000]
 
 # Generate sample size options using estimated means and hierarchical bayes
 test_sample = conjointpy.evaluate_sample.HierarchicalBayes(
     features=categories,
     levels=options,
     est_means=estimated_means,
-    q_range=question_range,
-    a_range=alternative_range,
+    n_range=respondent_range,
 )
 
 # We can export a table that looks at the different p-values
